@@ -1,6 +1,6 @@
 import React from "react";
 
-function Todo({ todo, index, onChange }) {
+function Todo({ todo, index, onChange, onDelete }) {
   const { text, completed } = todo;
 
   const handleCheckbox = e => {
@@ -8,11 +8,16 @@ function Todo({ todo, index, onChange }) {
     onChange(index, checked);
   };
 
+  const deleteTodo = e => {
+    onDelete(index);
+  };
+
   return (
     <div>
       <span>{text}</span>
       <span>
         <input type="checkbox" checked={completed} onChange={handleCheckbox} />
+        <button onClick={deleteTodo}>&times;</button>
       </span>
     </div>
   );

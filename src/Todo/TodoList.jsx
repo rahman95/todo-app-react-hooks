@@ -18,9 +18,17 @@ function TodoList() {
     setTodos(updatedTodos);
   };
 
+  const onDelete = index => {
+    const updatedTodos = [...todos];
+    updatedTodos.splice(index, 1);
+
+    setTodos(updatedTodos);
+  };
+
   const onSubmit = e => {
     e.preventDefault();
-    const input = e.target.querySelector("input");
+    const form = e.target;
+    const input = form.querySelector("input");
     const value = input.value;
 
     if (!value || value.length === 0) {
@@ -32,15 +40,20 @@ function TodoList() {
 
     setTodos(updatedTodos);
 
-    // clear input
-    input.value = "";
+    form.reset();
   };
 
   return (
     <div>
       <ul>
         {todos.map((todo, index) => (
-          <Todo todo={todo} onChange={onChange} index={index} key={index} />
+          <Todo
+            todo={todo}
+            onChange={onChange}
+            onDelete={onDelete}
+            index={index}
+            key={index}
+          />
         ))}
       </ul>
       <AddTodo onSubmit={onSubmit} />
