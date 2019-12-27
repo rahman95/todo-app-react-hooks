@@ -4,12 +4,21 @@ import AddTodo from "./AddTodo";
 
 function TodoList() {
   const defaultTodos = [
-    { text: "Learn about React", completed: false },
-    { text: "Meet friend for lunch", completed: false },
-    { text: "Build really cool todo app", completed: false }
+    { text: "Learn about React ⚛️", completed: false },
+    { text: "Look into Hooks ⚓️", completed: false },
+    { text: "Meet friends for lunch 🍕", completed: false },
+    { text: "Build really cool todo app 🚀", completed: false }
   ];
 
   const [todos, setTodos] = useState(defaultTodos);
+
+  const countTodos = () => {
+    return todos.length;
+  };
+
+  const allComplete = () => {
+    return todos.every(todo => todo.completed);
+  };
 
   const onChange = (index, checked) => {
     const updatedTodos = [...todos];
@@ -44,7 +53,18 @@ function TodoList() {
   };
 
   return (
-    <div>
+    <div className="border-8 border-gray-700 p-8">
+      <h2 className="border-b-2 border-gray-700 text-3xl text-gray-700 mb-4">
+        My Todos ({countTodos()})
+      </h2>
+      {allComplete() && (
+        <h3 className="bg-green-400 italic px-3 py-2 mb-4 text-center text-white">
+          <span role="img" aria-label="Party Emoji">
+            🎉
+          </span>
+          <span>Well done, all items are complete!</span>
+        </h3>
+      )}
       <ul>
         {todos.map((todo, index) => (
           <Todo

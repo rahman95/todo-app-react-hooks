@@ -3,7 +3,7 @@ import TodoList from "./Todo/TodoList";
 
 function App() {
   return (
-    <div className="w-full h-full flex bg-gray-400 p-10">
+    <div className="bg-gray-400 flex h-screen items-center justify-center p-10 w-full">
       <TodoList />
     </div>
   );

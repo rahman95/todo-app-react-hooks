@@ -1,4 +1,6 @@
 import React from "react";
+import CheckBox from "./components/CheckBox";
+import DeleteButton from "./components/DeleteButton";
 
 function Todo({ todo, index, onChange, onDelete }) {
   const { text, completed } = todo;
@@ -13,12 +15,13 @@ function Todo({ todo, index, onChange, onDelete }) {
   };
 
   return (
-    <div>
-      <span>{text}</span>
-      <span>
-        <input type="checkbox" checked={completed} onChange={handleCheckbox} />
-        <button onClick={deleteTodo}>&times;</button>
-      </span>
+    <div className="flex justify-between p-1">
+      <CheckBox
+        labelText={text}
+        checked={completed}
+        handleCheckbox={handleCheckbox}
+      />
+      <DeleteButton onClick={deleteTodo} />
     </div>
   );
 }
