@@ -1,17 +1,18 @@
 import React from "react";
 
-function Todo({ todo }) {
+function Todo({ todo, index, onChange }) {
   const { text, completed } = todo;
 
-  const onChange = e => {
-    console.log(e);
+  const handleCheckbox = e => {
+    const checked = e.target.checked;
+    onChange(index, checked);
   };
 
   return (
     <div>
       <span>{text}</span>
       <span>
-        <input type="checkbox" checked={completed} onChange={onChange} />
+        <input type="checkbox" checked={completed} onChange={handleCheckbox} />
       </span>
     </div>
   );

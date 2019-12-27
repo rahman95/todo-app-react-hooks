@@ -1,10 +1,12 @@
 import React from "react";
 
-function AddTodo() {
+function AddTodo({ onSubmit }) {
   return (
     <div>
-      <input type="text" placeholder="Add Todo"></input>
-      <button>Add</button>
+      <form onSubmit={onSubmit}>
+        <input type="text" placeholder="Add Todo"></input>
+        <button type="submit">Add</button>
+      </form>
     </div>
   );
 }
