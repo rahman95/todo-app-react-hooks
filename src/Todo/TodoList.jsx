@@ -3,9 +3,9 @@ import Todo from "./Todo";
 
 function TodoList() {
   const defaultTodos = [
-    { text: "Learn about React" },
-    { text: "Meet friend for lunch" },
-    { text: "Build really cool todo app" }
+    { text: "Learn about React", completed: false },
+    { text: "Meet friend for lunch", completed: false },
+    { text: "Build really cool todo app", completed: false }
   ];
   const [todos] = useState(defaultTodos);
 
